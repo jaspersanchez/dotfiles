@@ -9,10 +9,10 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search zsh-vi-mode)
 
 # Loads the core Oh My Zsh framework
 source $ZSH/oh-my-zsh.sh
@@ -23,6 +23,7 @@ source $ZSH/oh-my-zsh.sh
 alias reload-zsh="source ~/.zshrc" # reload zsh config
 alias edit-zsh="nvim ~/.zshrc" # edit zsh config
 alias vi="nvim" # open neovim
+alias globalenv="source ~/.python_envs/global_env/bin/activate" # activate global_env
 
 # History setup
 HISTFILE=$HOME/.zhistory
@@ -98,3 +99,5 @@ _fzf_comprun() {
     *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
+
+eval "$(starship init zsh)"
